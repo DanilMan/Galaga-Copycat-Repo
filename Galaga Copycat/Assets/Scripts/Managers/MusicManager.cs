@@ -14,7 +14,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void PlayMusicClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f)
+    public void PlayMusicClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, bool loop = false)
     {
         AudioSource audioSource = Instantiate(musicObject, spawnTransform.position, Quaternion.identity, parent);
 
@@ -24,6 +24,8 @@ public class MusicManager : MonoBehaviour
 
         audioSource.spatialBlend = spacialBlend;
 
+        audioSource.loop = loop;
+
         audioSource.Play();
 
         float clipLength = audioSource.clip.length + bufferTime;
@@ -31,7 +33,7 @@ public class MusicManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-    public void PlayRandomMusicClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f)
+    public void PlayRandomMusicClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, bool loop = false)
     {
         int rand = Random.Range(0, audioClip.Length);
 
@@ -42,6 +44,8 @@ public class MusicManager : MonoBehaviour
         audioSource.volume = volume;
 
         audioSource.spatialBlend = spacialBlend;
+
+        audioSource.loop = loop;
 
         audioSource.Play();
 

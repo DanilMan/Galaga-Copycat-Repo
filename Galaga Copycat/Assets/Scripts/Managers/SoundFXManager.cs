@@ -14,24 +14,36 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, float pitch = 1f, bool loop = false)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity, parent);
 
         audioSource.clip = audioClip;
 
+        if (audioSource.clip.ambisonic == true)
+        {
+            audioSource.spatialize = false;
+        }
+
         audioSource.volume = volume;
 
         audioSource.spatialBlend = spacialBlend;
 
+        audioSource.pitch = pitch;
+
+        audioSource.loop = loop;
+
         audioSource.Play();
 
-        float clipLength = audioSource.clip.length + bufferTime;
+        if (!audioSource.loop)
+        {
+            float clipLength = audioSource.clip.length + bufferTime;
 
-        Destroy(audioSource.gameObject, clipLength);
+            Destroy(audioSource.gameObject, clipLength);
+        }
     }
 
-    public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f)
+    public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, float pitch = 1f, bool loop = false)
     {
         int rand = Random.Range(0, audioClip.Length);
 
@@ -39,14 +51,26 @@ public class SoundFXManager : MonoBehaviour
 
         audioSource.clip = audioClip[rand];
 
+        if (audioSource.clip.ambisonic == true)
+        {
+            audioSource.spatialize = false;
+        }
+
         audioSource.volume = volume;
 
         audioSource.spatialBlend = spacialBlend;
 
+        audioSource.pitch = pitch;
+
+        audioSource.loop = loop;
+
         audioSource.Play();
 
-        float clipLength = audioSource.clip.length + bufferTime;
+        if (!audioSource.loop)
+        {
+            float clipLength = audioSource.clip.length + bufferTime;
 
-        Destroy(audioSource.gameObject, clipLength);
+            Destroy(audioSource.gameObject, clipLength);
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -36,6 +37,19 @@ public class PlayerController : MonoBehaviour
         if (context.performed && !PauseMenu.GameIsPaused)
         {
             ProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyProjectile")
+        {
+            AudioListener m_audioListener= GetComponent<AudioListener>();
+            GameObject listener = new GameObject("Listener");
+            listener.transform.position = transform.position;
+            Destroy(m_audioListener);
+            listener.AddComponent<AudioListener>();
+            Destroy(gameObject);
         }
     }
 }
