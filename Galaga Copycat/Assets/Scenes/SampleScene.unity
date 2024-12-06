@@ -3594,7 +3594,7 @@ GameObject:
   - component: {fileID: 1769125550}
   - component: {fileID: 1769125551}
   m_Layer: 0
-  m_Name: Enemy Array
+  m_Name: EnemyArray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3629,6 +3629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2709435286515341998, guid: 16eb77a5210788541ad1ca6825fdba51, type: 3}
+  EnemySpawner: {fileID: 6869495165172928581, guid: 2114e092a7d0b1841ae6a02d45f85574, type: 3}
   gridX: 15
   gridY: 5
   gridSpacingOffSet: 0.75
