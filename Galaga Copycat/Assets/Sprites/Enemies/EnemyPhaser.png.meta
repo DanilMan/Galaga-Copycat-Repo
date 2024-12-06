@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 84deeb882a20fa748b4af68ea49d6750
+guid: 6d979555d16d0774cb226934b690a99a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4947423057338122105
-    second: Ship (1) 1_0
+      213: 994035325539090891
+    second: EnemyPhaser_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ship (1) 1_0
+      name: EnemyPhaser_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 32
+        width: 8
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 780c8c121f8375bb0800000000000000
-      internalID: -4947423057338122105
+      spriteID: bc182f8acd58bcd00800000000000000
+      internalID: 994035325539090891
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Ship (1) 1_0: -4947423057338122105
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [Range(0.1f, 20)][SerializeField] private float speed;
     [Range(0.1f, 1)][SerializeField] private float smoothTime;
 
+    public LayerMask enemyLayer;
+
     public ProjectileBehavior ProjectilePrefab;
     public Transform LaunchOffset;
 
@@ -42,14 +44,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyProjectile")
-        {
-            AudioListener m_audioListener= GetComponent<AudioListener>();
+        if(enemyLayer == (enemyLayer.value & (1 << collision.gameObject.layer))){
+            AudioListener m_audioListener = GetComponent<AudioListener>();
             GameObject listener = new GameObject("Listener");
             listener.transform.position = transform.position;
             Destroy(m_audioListener);
             listener.AddComponent<AudioListener>();
             Destroy(gameObject);
         }
+        //if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyProjectile")
+        //{
+        //    AudioListener m_audioListener= GetComponent<AudioListener>();
+        //    GameObject listener = new GameObject("Listener");
+        //    listener.transform.position = transform.position;
+        //    Destroy(m_audioListener);
+        //    listener.AddComponent<AudioListener>();
+        //    Destroy(gameObject);
+        //}
     }
 }

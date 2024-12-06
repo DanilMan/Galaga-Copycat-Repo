@@ -450,6 +450,8 @@
 "Assets/Scripts/Canvas/PauseMenu.cs"
 "Assets/Scripts/Enemy/EnemyArray.cs"
 "Assets/Scripts/Enemy/EnemyBehavior.cs"
+"Assets/Scripts/Enemy/EnemyRammer.cs"
+"Assets/Scripts/Enemy/EnemyShooter.cs"
 "Assets/Scripts/Enemy/EnemySpawnManager.cs"
 "Assets/Scripts/Managers/MusicManager.cs"
 "Assets/Scripts/Managers/SoundFXManager.cs"

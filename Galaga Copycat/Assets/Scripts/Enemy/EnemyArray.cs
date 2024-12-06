@@ -4,7 +4,7 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class EnemyArray : MonoBehaviour
 {
-    public GameObject[] enemies;
+    public GameObject[] Enemies;
     public EnemySpawnManager EnemySpawner;
     public int gridX;
     public int gridY;
@@ -29,19 +29,14 @@ public class EnemyArray : MonoBehaviour
             {
                 Vector3 spawnPosition = new Vector2(x * gridSpacingOffSet, y * gridSpacingOffSet) - gridOrigin;
                 SpawnEnemyManager(spawnPosition, Quaternion.identity, x, y);
-                //PickAndSpawn(spawnPosition, Quaternion.identity);
             }
         }
     }
 
     private void SpawnEnemyManager(Vector2 spawnPosition, Quaternion rotation, int x, int y)
     {
-        ESMs[x,y] = Instantiate(EnemySpawner, spawnPosition, rotation);
+        int randomIndex = Random.Range(0, Enemies.Length);
+        EnemySpawnManager ESM = Instantiate(EnemySpawner, spawnPosition, rotation, transform);
+        ESMs[x, y] = ESM;
     }
-
-    //private void PickAndSpawn(Vector2 spawnPosition, Quaternion rotation)
-    //{
-    //    int randomIndex = Random.Range(0, enemies.Length);
-    //    GameObject clone = Instantiate(enemies[randomIndex], spawnPosition, rotation);
-    //}
 }

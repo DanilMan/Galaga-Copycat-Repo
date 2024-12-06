@@ -2143,6 +2143,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   smoothTime: 0.225
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
   ProjectilePrefab: {fileID: 1736576534365259053, guid: 668fd214b0d2cb84bbb75cbde1318f78, type: 3}
   LaunchOffset: {fileID: 1834501102}
 --- !u!50 &651790008
@@ -3627,8 +3630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48c5e1b7aaf55f04f878060ac5380a35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 2709435286515341998, guid: 16eb77a5210788541ad1ca6825fdba51, type: 3}
+  Enemies: []
   EnemySpawner: {fileID: 6869495165172928581, guid: 2114e092a7d0b1841ae6a02d45f85574, type: 3}
   gridX: 15
   gridY: 5
