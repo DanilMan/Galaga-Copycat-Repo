@@ -14,7 +14,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void PlayMusicClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, bool loop = false)
+    public void PlayMusicClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, bool loop = false, float minDistance = 0.5f, float maxDistance = 12)
     {
         AudioSource audioSource = Instantiate(musicObject, spawnTransform.position, Quaternion.identity, parent);
 
@@ -26,6 +26,10 @@ public class MusicManager : MonoBehaviour
 
         audioSource.loop = loop;
 
+        audioSource.minDistance = minDistance;
+
+        audioSource.maxDistance = maxDistance;
+
         audioSource.Play();
 
         float clipLength = audioSource.clip.length + bufferTime;
@@ -33,7 +37,7 @@ public class MusicManager : MonoBehaviour
         Destroy(audioSource.gameObject, clipLength);
     }
 
-    public void PlayRandomMusicClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, bool loop = false)
+    public void PlayRandomMusicClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, bool loop = false, float minDistance = 0.5f, float maxDistance = 12)
     {
         int rand = Random.Range(0, audioClip.Length);
 
@@ -46,6 +50,10 @@ public class MusicManager : MonoBehaviour
         audioSource.spatialBlend = spacialBlend;
 
         audioSource.loop = loop;
+
+        audioSource.minDistance = minDistance;
+
+        audioSource.maxDistance = maxDistance;
 
         audioSource.Play();
 

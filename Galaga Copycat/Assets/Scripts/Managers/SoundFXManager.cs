@@ -14,7 +14,7 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, float pitch = 1f, bool loop = false)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, float pitch = 1f, bool loop = false, float minDistance = 0.5f, float maxDistance = 12)
     {
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity, parent);
 
@@ -33,6 +33,10 @@ public class SoundFXManager : MonoBehaviour
 
         audioSource.loop = loop;
 
+        audioSource.minDistance = minDistance;
+        
+        audioSource.maxDistance = maxDistance;
+
         audioSource.Play();
 
         if (!audioSource.loop)
@@ -43,7 +47,7 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, float pitch = 1f, bool loop = false)
+    public void PlayRandomSoundFXClip(AudioClip[] audioClip, Transform spawnTransform, Transform parent = null, float volume = 1f, float spacialBlend = 0f, float bufferTime = 0.1f, float pitch = 1f, bool loop = false, float minDistance = 0.5f, float maxDistance = 12)
     {
         int rand = Random.Range(0, audioClip.Length);
 
@@ -63,6 +67,10 @@ public class SoundFXManager : MonoBehaviour
         audioSource.pitch = pitch;
 
         audioSource.loop = loop;
+
+        audioSource.minDistance = minDistance;
+
+        audioSource.maxDistance = maxDistance;
 
         audioSource.Play();
 

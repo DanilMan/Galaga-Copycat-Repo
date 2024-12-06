@@ -7,7 +7,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Start()
     {
-        SoundFXManager.instance.PlaySoundFXClip(engineHum, transform, transform, 0.25f, 1f, 0f, 1f, true);
+        SoundFXManager.instance.PlaySoundFXClip(engineHum, transform, transform, 0.10f, 1f, 0f, 1f, true);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
