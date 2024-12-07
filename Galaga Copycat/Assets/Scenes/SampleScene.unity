@@ -2142,7 +2142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  smoothTime: 0.225
+  smoothTime: 0.2
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -3637,6 +3637,8 @@ MonoBehaviour:
   gridSpacingOffSet: 0.75
   gridOriginQuadrantX: 2
   gridOriginQuadrantY: 4
+  maxInterval: 2
+  minInterval: 0.1
 --- !u!1 &1775377406
 GameObject:
   m_ObjectHideFlags: 0

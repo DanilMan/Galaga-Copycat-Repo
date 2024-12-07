@@ -190,10 +190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80ea80bf27a947f40aee5801eaecbe11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randStartTimeRange:
-    x: 3
-    y: 6
-  randShootTimeRange:
-    x: 2
-    y: 4
-  ProjectilePrefab: {fileID: 1147411883990870967, guid: 1987456c1742a5e46aa11c4be482bf1b, type: 3}
+  randStartTimeBegin: 3
+  randStartTimeEnd: 6
+  randShootTimeBegin: 2
+  randShootTimeEnd: 4
+  ProjectilePrefab: {fileID: 3918810368284197644, guid: 1987456c1742a5e46aa11c4be482bf1b, type: 3}
+  Player: {fileID: 7436988493596858163, guid: d91c55286e9557d41b44026bca476a9e, type: 3}

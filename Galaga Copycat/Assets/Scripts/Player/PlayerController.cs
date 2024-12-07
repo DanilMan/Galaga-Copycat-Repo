@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask enemyLayer;
 
-    public ProjectileBehavior ProjectilePrefab;
+    public PlayerProjectileBehavior ProjectilePrefab;
     public Transform LaunchOffset;
 
     private void Awake()
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed && !PauseMenu.GameIsPaused)
         {
-            ProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+            PlayerProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
         }
     }
 

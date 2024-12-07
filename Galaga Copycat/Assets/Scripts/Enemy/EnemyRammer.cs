@@ -2,15 +2,47 @@ using UnityEngine;
 
 public class EnemyRammer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private float randStartTimeBegin, randStartTimeEnd; // (3,9)
+    [SerializeField] private float speed;
+    private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
+    private bool Targeted = false;
+
+    Vector3 targetDirection;
+    Quaternion rotation;
+    private GameObject Player;
+
+    private float lerpSpeed = 0.01f;
+    private float timeCount = 0.0f;
+
+    private void Start()
     {
-        
+        float randomTime = UnityEngine.Random.Range(randStartTimeBegin, randStartTimeEnd);
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        Player = GameObject.Find("Ship");
+        Invoke("Ram", randomTime);
+    }
+    private void Ram()
+    {
+        if (Player == null) return;
+        targetDirection = Player.transform.position - transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f);
+        Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
+        rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
+        Targeted = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (Targeted)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
+            timeCount = timeCount + Time.deltaTime;
+            if (timeCount > 1)
+            {
+                rb.linearVelocity = targetDirection * speed;
+            }
+        }
         
     }
 }

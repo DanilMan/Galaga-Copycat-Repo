@@ -457,7 +457,9 @@
 "Assets/Scripts/Managers/SoundFXManager.cs"
 "Assets/Scripts/Managers/SoundMixerManager.cs"
 "Assets/Scripts/Player/PlayerController.cs"
-"Assets/Scripts/Projectile/ProjectileBehavior.cs"
+"Assets/Scripts/Projectile/EnemyProjectileBehavior.cs"
+"Assets/Scripts/Projectile/PlayerProjectileBehavior.cs"
+"Assets/Scripts/Utility/PublicHelper.cs"
 -langversion:9.0
 /deterministic
 /optimize+

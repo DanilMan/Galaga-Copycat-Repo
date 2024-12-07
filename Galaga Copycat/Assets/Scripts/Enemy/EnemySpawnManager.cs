@@ -1,26 +1,42 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
     public GameObject[] Enemies;
+    [SerializeField] private EnemyArray enemyArray;
     private GameObject Enemy;
+    private GameObject clone;
+    private EnemyArray Parent;
+    private int x;
+    private int y;
+    System.Random rnd = new System.Random();
 
-    public void Awake()
+    public void setXY(int x, int y)
     {
-        System.Random rnd = new System.Random();
-        int randomIndex = rnd.Next(0, Enemies.Length);
-        Enemy = Enemies[randomIndex];
-        this.tag = Enemy.tag;
+        this.x = x;
+        this.y = y;
     }
 
     public void Start()
     {
-        Spawn();
+        Parent = transform.parent.GetComponent<EnemyArray>();
+    }
+
+    public void shipDestroyed()
+    {
+        Parent.decantSpawner(x, y);
     }
 
     public void Spawn()
     {
-        GameObject clone = Instantiate(Enemy, transform.position, Quaternion.identity);
+        if(clone == null)
+        {
+            int randomIndex = rnd.Next(0, Enemies.Length);
+            Enemy = Enemies[randomIndex];
+            this.tag = Enemy.tag;
+            clone = Instantiate(Enemy, transform.position, Quaternion.identity, transform);
+        }
     }
 }

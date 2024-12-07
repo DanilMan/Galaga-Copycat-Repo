@@ -190,3 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67b94a093ee9c7c40a90ebec3aeaac6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randStartTimeBegin: 3
+  randStartTimeEnd: 9
+  speed: 2.5
