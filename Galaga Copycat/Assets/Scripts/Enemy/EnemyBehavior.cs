@@ -23,11 +23,15 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float lerpSpeed = 0.01f;
     private float timeCount = 0.0f;
 
+    [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip explosionTransient;
     [SerializeField] private AudioClip Engine;
     [NonSerialized] public AudioSource engineSource;
 
     public LayerMask projectileLayer;
+
+    private bool isQuitting = false;
+    private bool isExploding = true;
 
     private void Start()
     {
@@ -92,10 +96,27 @@ public class EnemyBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Parent.shipDestroyed();
-        if (projectileLayer == (projectileLayer.value & (1 << collision.gameObject.layer)))
+        if (projectileLayer != (projectileLayer.value & (1 << collision.gameObject.layer)))
         {
             SoundFXManager.instance.PlaySoundFXClip(explosionTransient, transform, transform, 1f, 1f, 0.1f, UnityEngine.Random.Range(2, 2.5f), false, 0.5f, 6);
         }
+        else
+        {
+            isExploding = false;
+        }
         Destroy(gameObject, destroyDelay);
+    }
+
+    void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
+    private void OnDestroy()
+    {
+        if (!isQuitting && isExploding)
+        {
+            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.95f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f), false, 0.5f, 10);
+        }
     }
 }

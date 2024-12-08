@@ -176,4 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  laser: {fileID: 8300000, guid: 7841131b54e8a5543be3303ad63d51ea, type: 3}
+  pew: {fileID: 8300000, guid: 368f73125c1487847b4b19ea0f639301, type: 3}

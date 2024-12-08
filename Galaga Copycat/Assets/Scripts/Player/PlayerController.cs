@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     [Range(0.1f, 20)][SerializeField] private float speed;
     [Range(0.1f, 1)][SerializeField] private float smoothTime;
 
+    [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip pewTransient;
     [SerializeField] private AudioClip Engine;
     private AudioSource engineSource;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public PlayerProjectileBehavior ProjectilePrefab;
     public Transform LaunchOffset;
 
+    private bool isQuitting = false;
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
@@ -73,5 +75,17 @@ public class PlayerController : MonoBehaviour
         //    listener.AddComponent<AudioListener>();
         //    Destroy(gameObject);
         //}
+    }
+    void OnApplicationQuit()
+    {
+        isQuitting = true;
+    }
+
+    private void OnDestroy()
+    {
+        if (!isQuitting)
+        {
+            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f));
+        }
     }
 }

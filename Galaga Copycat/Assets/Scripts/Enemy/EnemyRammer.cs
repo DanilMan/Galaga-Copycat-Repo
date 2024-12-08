@@ -43,7 +43,7 @@ public class EnemyRammer : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
             timeCount = timeCount + Time.deltaTime;
-            if (transform.rotation == rotation)
+            if (transform.rotation == rotation) // probably doesn't always exactly match and probably causing bug!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             {
                 Targeted = false;
                 Engage = true;

@@ -10,8 +10,7 @@ public class EnemyShooter : MonoBehaviour
 
     public EnemyProjectileBehavior ProjectilePrefab;
     private GameObject Player;
-    
-    [SerializeField] private AudioClip pew;
+
     [SerializeField] private AudioClip pewTransient;
     
     private float timer;
@@ -33,7 +32,6 @@ public class EnemyShooter : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
         EnemyProjectileBehavior projectile = Instantiate(ProjectilePrefab, position, rotation);
         projectile.Initialize(targetDirection);
-        SoundFXManager.instance.PlaySoundFXClip(pew, transform, projectile.transform, 0.15f, 1, 0.1f, Random.Range(2, 2.5f), false, 0.5f, 9);
 
         float randomTime = UnityEngine.Random.Range(randShootTimeBegin, randShootTimeEnd);
         Invoke("Shoot", randomTime);
