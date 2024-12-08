@@ -5,21 +5,20 @@ public class EnemyRammer : MonoBehaviour
     [SerializeField] private float randStartTimeBegin, randStartTimeEnd; // (3,9)
     [SerializeField] private float speed;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
     private bool Targeted = false;
+    private bool Engage = false;
 
     Vector3 targetDirection;
     Quaternion rotation;
     private GameObject Player;
 
-    private float lerpSpeed = 0.01f;
+    [SerializeField]private float lerpSpeed = 0.01f;
     private float timeCount = 0.0f;
 
     private void Start()
     {
         float randomTime = UnityEngine.Random.Range(randStartTimeBegin, randStartTimeEnd);
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
         Player = GameObject.Find("Ship");
         Invoke("Ram", randomTime);
     }
@@ -36,13 +35,18 @@ public class EnemyRammer : MonoBehaviour
     {
         if (Targeted)
         {
+            float interpolate = timeCount * lerpSpeed;
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
             timeCount = timeCount + Time.deltaTime;
-            if (timeCount > 1)
+            if (transform.rotation == rotation)
             {
-                rb.linearVelocity = targetDirection * speed;
+                Targeted = false;
+                Engage = true;
             }
         }
-        
+        if (Engage)
+        {
+            rb.linearVelocity = targetDirection * speed;
+        }
     }
 }

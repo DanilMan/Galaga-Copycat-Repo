@@ -18,6 +18,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
     {
         rb.linearVelocity = _direction * speed;
         SoundFXManager.instance.PlaySoundFXClip(laser, transform, transform, 1f, 1f);
+        Destroy(gameObject, speed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

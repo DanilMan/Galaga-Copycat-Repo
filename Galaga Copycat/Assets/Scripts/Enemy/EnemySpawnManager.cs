@@ -6,11 +6,13 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public GameObject[] Enemies;
     [SerializeField] private EnemyArray enemyArray;
+    [SerializeField] private Vector3 spawnOffset;
     private GameObject Enemy;
     private GameObject clone;
     private EnemyArray Parent;
     private int x;
     private int y;
+    private int Pos;
     System.Random rnd = new System.Random();
 
     public void setXY(int x, int y)
@@ -22,6 +24,7 @@ public class EnemySpawnManager : MonoBehaviour
     public void Start()
     {
         Parent = transform.parent.GetComponent<EnemyArray>();
+        Pos = transform.position.x >= 0 ? 1 : -1;
     }
 
     public void shipDestroyed()
@@ -36,7 +39,8 @@ public class EnemySpawnManager : MonoBehaviour
             int randomIndex = rnd.Next(0, Enemies.Length);
             Enemy = Enemies[randomIndex];
             this.tag = Enemy.tag;
-            clone = Instantiate(Enemy, transform.position, Quaternion.identity, transform);
+            Vector3 position = transform.position + new Vector3(spawnOffset.x * Pos, spawnOffset.y , spawnOffset.z);
+            clone = Instantiate(Enemy, position, Quaternion.identity, transform);
         }
     }
 }

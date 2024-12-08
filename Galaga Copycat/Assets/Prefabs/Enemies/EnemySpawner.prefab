@@ -47,3 +47,5 @@ MonoBehaviour:
   Enemies:
   - {fileID: 9019803030002060175, guid: 04d61c55f9eb83843b6e9c6ff70b4981, type: 3}
   - {fileID: 2691234782288297046, guid: fe19fd844f505384fa4ae949cfff52a5, type: 3}
+  enemyArray: {fileID: 0}
+  spawnOffset: {x: 0.5, y: 4, z: 0}
