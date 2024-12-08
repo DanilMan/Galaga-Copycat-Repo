@@ -177,7 +177,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineHum: {fileID: 8300000, guid: d1d2b92f100795d4a8b224ce387aca3f, type: 3}
-  destroyDelay: 0.05
+  destroyDelay: 0.25
+  journeyTime: 2
+  lerpSpeed: 0.01
+  explosionTransient: {fileID: 8300000, guid: 0666854915b25ad45bccffc151ea63ae, type: 3}
+  Engine: {fileID: 8300000, guid: e7a31082bf1c4d441bfd27d77630f2a1, type: 3}
+  engineSource: {fileID: 0}
+  projectileLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4434176154632527150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,4 +203,5 @@ MonoBehaviour:
   randShootTimeBegin: 2
   randShootTimeEnd: 4
   ProjectilePrefab: {fileID: 3918810368284197644, guid: 1987456c1742a5e46aa11c4be482bf1b, type: 3}
-  Player: {fileID: 7436988493596858163, guid: d91c55286e9557d41b44026bca476a9e, type: 3}
+  pew: {fileID: 8300000, guid: 368f73125c1487847b4b19ea0f639301, type: 3}
+  pewTransient: {fileID: 8300000, guid: 3e2c4d0ce61930c46a2348c15fcea74c, type: 3}

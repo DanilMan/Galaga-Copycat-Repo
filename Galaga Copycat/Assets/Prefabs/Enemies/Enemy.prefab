@@ -176,4 +176,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   engineHum: {fileID: 8300000, guid: d1d2b92f100795d4a8b224ce387aca3f, type: 3}
-  destroyDelay: 0.05
+  destroyDelay: 0.5
+  journeyTime: 2
+  lerpSpeed: 0.01
+  explosionTransient: {fileID: 8300000, guid: 0666854915b25ad45bccffc151ea63ae, type: 3}
+  Engine: {fileID: 8300000, guid: e7a31082bf1c4d441bfd27d77630f2a1, type: 3}
+  engineSource: {fileID: 0}
+  projectileLayer:
+    serializedVersion: 2
+    m_Bits: 64

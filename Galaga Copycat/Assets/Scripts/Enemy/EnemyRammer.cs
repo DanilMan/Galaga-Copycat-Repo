@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EnemyRammer : MonoBehaviour
 {
     [SerializeField] private float randStartTimeBegin, randStartTimeEnd; // (3,9)
     [SerializeField] private float speed;
     private Rigidbody2D rb;
+    private EnemyBehavior eb;
     private bool Targeted = false;
     private bool Engage = false;
 
@@ -15,10 +17,13 @@ public class EnemyRammer : MonoBehaviour
     [SerializeField]private float lerpSpeed = 0.01f;
     private float timeCount = 0.0f;
 
+    [SerializeField] private AudioClip ramTransient;
+
     private void Start()
     {
         float randomTime = UnityEngine.Random.Range(randStartTimeBegin, randStartTimeEnd);
         rb = GetComponent<Rigidbody2D>();
+        eb = GetComponent<EnemyBehavior>();
         Player = GameObject.Find("Ship");
         Invoke("Ram", randomTime);
     }
@@ -28,6 +33,7 @@ public class EnemyRammer : MonoBehaviour
         targetDirection = Player.transform.position - transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f);
         Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
         rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
+        SoundFXManager.instance.PlaySoundFXClip(ramTransient, transform, transform, 1f, 0.9f, 0.1f, Random.Range(.9f, 1.1f), false, 0.5f, 12);
         Targeted = true;
     }
 
@@ -35,7 +41,6 @@ public class EnemyRammer : MonoBehaviour
     {
         if (Targeted)
         {
-            float interpolate = timeCount * lerpSpeed;
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
             timeCount = timeCount + Time.deltaTime;
             if (transform.rotation == rotation)
@@ -47,6 +52,7 @@ public class EnemyRammer : MonoBehaviour
         if (Engage)
         {
             rb.linearVelocity = targetDirection * speed;
+            eb.engineSource.pitch = 2f;
         }
     }
 }

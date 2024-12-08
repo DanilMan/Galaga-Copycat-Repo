@@ -12,6 +12,10 @@ public class PlayerController : MonoBehaviour
     [Range(0.1f, 20)][SerializeField] private float speed;
     [Range(0.1f, 1)][SerializeField] private float smoothTime;
 
+    [SerializeField] private AudioClip pewTransient;
+    [SerializeField] private AudioClip Engine;
+    private AudioSource engineSource;
+
     public LayerMask enemyLayer;
 
     public PlayerProjectileBehavior ProjectilePrefab;
@@ -20,6 +24,11 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         m_Rigidbody2D = GetComponent<Rigidbody2D>();
+    }
+
+    private void Start()
+    {
+        engineSource = SoundFXManager.instance.PlaySoundFXClip(Engine, transform, transform, 0.65f, 0f, 0.1f, 1, true);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -32,6 +41,8 @@ public class PlayerController : MonoBehaviour
     {
         _smoothedMovementInput = Vector2.SmoothDamp(_smoothedMovementInput, _direction, ref m_smoothedMovementVelocity, smoothTime);
         m_Rigidbody2D.linearVelocity = _smoothedMovementInput * speed;
+
+        engineSource.pitch = ((Mathf.Abs(_smoothedMovementInput.x) + Mathf.Abs(_smoothedMovementInput.y)) / speed) + .80f;
     }
 
     public void Shoot(InputAction.CallbackContext context)
@@ -39,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed && !PauseMenu.GameIsPaused)
         {
             PlayerProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
+            SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 1f, 0f, 0.1f, Random.Range(0.8f,1f));
         }
     }
 

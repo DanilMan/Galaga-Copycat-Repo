@@ -152,7 +152,7 @@ CapsuleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.09, y: 0.17}
+  m_Size: {x: 0.1, y: 0.18}
   m_Direction: 0
 --- !u!114 &1736576534365259053
 MonoBehaviour:
@@ -167,4 +167,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  laser: {fileID: 8300000, guid: 7841131b54e8a5543be3303ad63d51ea, type: 3}
+  pew: {fileID: 8300000, guid: 650225ee67902cc4098e92501f68b798, type: 3}

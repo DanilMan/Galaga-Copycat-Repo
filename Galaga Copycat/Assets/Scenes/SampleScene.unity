@@ -2143,6 +2143,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   smoothTime: 0.2
+  pewTransient: {fileID: 8300000, guid: a3ebdc764ba9ca743bc491594d1a3586, type: 3}
+  Engine: {fileID: 8300000, guid: 5357961c61014fc43a8c1d15164be046, type: 3}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128

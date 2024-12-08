@@ -1,6 +1,5 @@
-using System.Threading;
+using System;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class EnemyBehavior : MonoBehaviour
 {
@@ -24,11 +23,17 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float lerpSpeed = 0.01f;
     private float timeCount = 0.0f;
 
+    [SerializeField] private AudioClip explosionTransient;
+    [SerializeField] private AudioClip Engine;
+    [NonSerialized] public AudioSource engineSource;
+
+    public LayerMask projectileLayer;
+
     private void Start()
     {
         Parent = transform.parent.GetComponent<EnemySpawnManager>();
         rb = GetComponent<Rigidbody2D>();
-        //SoundFXManager.instance.PlaySoundFXClip(engineHum, transform, transform, 0.10f, 1f, 0f, 1f, true);
+        engineSource = SoundFXManager.instance.PlaySoundFXClip(Engine, transform, transform, 0.6f, 1f, 0.1f, 1, true, 0.5f, 5);
 
         storedTransform = transform.position;
         storedPlayerTransform = Parent.transform.position;
@@ -42,11 +47,6 @@ public class EnemyBehavior : MonoBehaviour
         playerCenter = storedPlayerTransform - center;
 
         Targeted = true;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Parent.shipDestroyed();
-        Destroy(gameObject, destroyDelay);
     }
 
     private void Update()
@@ -87,5 +87,15 @@ public class EnemyBehavior : MonoBehaviour
         {
             finished = false;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Parent.shipDestroyed();
+        if (projectileLayer == (projectileLayer.value & (1 << collision.gameObject.layer)))
+        {
+            SoundFXManager.instance.PlaySoundFXClip(explosionTransient, transform, transform, 1f, 1f, 0.1f, UnityEngine.Random.Range(2, 2.5f), false, 0.5f, 6);
+        }
+        Destroy(gameObject, destroyDelay);
     }
 }
