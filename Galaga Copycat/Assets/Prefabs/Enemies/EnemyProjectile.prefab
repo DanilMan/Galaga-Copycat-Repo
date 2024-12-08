@@ -176,4 +176,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  pew: {fileID: 8300000, guid: 368f73125c1487847b4b19ea0f639301, type: 3}
+  pew: {fileID: 8300000, guid: 10fc47825e7f62841bba2bc5d9d972e7, type: 3}

@@ -24,6 +24,7 @@ public class EnemyRammer : MonoBehaviour
         float randomTime = UnityEngine.Random.Range(randStartTimeBegin, randStartTimeEnd);
         rb = GetComponent<Rigidbody2D>();
         eb = GetComponent<EnemyBehavior>();
+        eb.setExplosionPitchRange(0.5f, 0.7f);
         Player = GameObject.Find("Ship");
         Invoke("Ram", randomTime);
     }
@@ -43,8 +44,9 @@ public class EnemyRammer : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
             timeCount = timeCount + Time.deltaTime;
-            if (transform.rotation == rotation) // probably doesn't always exactly match and probably causing bug!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (Quaternion.Dot(transform.rotation, rotation) > 0.9999f)
             {
+                transform.rotation = rotation;
                 Targeted = false;
                 Engage = true;
             }

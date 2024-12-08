@@ -7,6 +7,7 @@ public class EnemyShooter : MonoBehaviour
     [SerializeField] private float randStartTimeBegin, randStartTimeEnd; // (3,6)
     [SerializeField] private float randShootTimeBegin, randShootTimeEnd; // (2,4)
     private SpriteRenderer spriteRenderer;
+    private EnemyBehavior eb;
 
     public EnemyProjectileBehavior ProjectilePrefab;
     private GameObject Player;
@@ -18,6 +19,8 @@ public class EnemyShooter : MonoBehaviour
     {
         float randomTime = UnityEngine.Random.Range(randStartTimeBegin, randStartTimeEnd);
         spriteRenderer = GetComponent<SpriteRenderer>();
+        eb = GetComponent<EnemyBehavior>();
+        eb.setExplosionPitchRange(0.8f, 1);
         Player = GameObject.Find("Ship");
         Invoke("Shoot", randomTime);
     }

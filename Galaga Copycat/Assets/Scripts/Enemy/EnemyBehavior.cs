@@ -30,6 +30,8 @@ public class EnemyBehavior : MonoBehaviour
 
     public LayerMask projectileLayer;
 
+    private float[] explosionPitchRange = {0.9f, 1.1f};
+
     private bool isQuitting = false;
     private bool isExploding = true;
 
@@ -51,6 +53,12 @@ public class EnemyBehavior : MonoBehaviour
         playerCenter = storedPlayerTransform - center;
 
         Targeted = true;
+    }
+
+    public void setExplosionPitchRange(float first, float second)
+    {
+        this.explosionPitchRange[0] = first;
+        this.explosionPitchRange[1] = second;
     }
 
     private void Update()
@@ -87,8 +95,9 @@ public class EnemyBehavior : MonoBehaviour
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, storedParentRotation, timeCount * lerpSpeed);
         timeCount = timeCount + Time.deltaTime;
-        if (transform.rotation == storedParentRotation)
+        if (Quaternion.Dot(transform.rotation, storedParentRotation) > 0.9999f)
         {
+            transform.rotation = storedParentRotation;
             finished = false;
         }
     }
@@ -116,7 +125,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (!isQuitting && isExploding)
         {
-            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.95f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f), false, 0.5f, 10);
+            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.95f, 0.1f, UnityEngine.Random.Range(explosionPitchRange[0], explosionPitchRange[1]), false, 0.5f, 10);
         }
     }
 }

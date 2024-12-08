@@ -3669,6 +3669,7 @@ MonoBehaviour:
   gridX: 15
   gridY: 5
   gridSpacingOffSet: 0.75
+  enemySpawnCount: 20
   gridOriginQuadrantX: 2
   gridOriginQuadrantY: 4
   maxInterval: 2

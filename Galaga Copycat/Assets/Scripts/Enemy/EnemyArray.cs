@@ -9,7 +9,9 @@ public class EnemyArray : MonoBehaviour
     public EnemySpawnManager EnemySpawner;
     public int gridX = 15;
     public int gridY = 5;
+    private int enemyCount;
     public float gridSpacingOffSet = 0.75f;
+    public int enemySpawnCount = 10;
     public float gridOriginQuadrantX = 2f;
     public float gridOriginQuadrantY = 4f;
     public float maxInterval = 2.5f;
@@ -26,6 +28,7 @@ public class EnemyArray : MonoBehaviour
 
     private void Start()
     {
+        enemyCount = gridX * gridY;
         gridOrigin = new Vector2((gridX - 1) * gridSpacingOffSet / gridOriginQuadrantX, (gridY - 1) * gridSpacingOffSet / gridOriginQuadrantY); // get centered origin
         ESMs = new EnemySpawnManager[gridX, gridY];
         SpawnGrid();
@@ -73,7 +76,7 @@ public class EnemyArray : MonoBehaviour
     
     private void GetSpawner()
     {
-        if (Pos.Count > 55)
+        if (Pos.Count > (enemyCount - enemySpawnCount))
         {
             int[] spawner = Pos[0];
             ESMs[spawner[0], spawner[1]].Spawn();
