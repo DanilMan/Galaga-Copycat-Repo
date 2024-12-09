@@ -5,6 +5,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     [SerializeField] private AudioClip engineHum;
     [SerializeField] float destroyDelay;
+    [NonSerialized] public GameObject Player;
     private EnemySpawnManager Parent;
     private Rigidbody2D rb;
 
@@ -15,10 +16,10 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private float journeyTime = 2.0f;
     private float startTime;
     private Vector3 storedTransform;
-    private Vector3 storedPlayerTransform;
+    private Vector3 storedParentTransform;
     private Quaternion storedParentRotation;
     private Vector3 enemyCenter;
-    private Vector3 playerCenter;
+    private Vector3 parentCenter;
 
     [SerializeField] private float lerpSpeed = 0.01f;
     private float timeCount = 0.0f;
@@ -26,6 +27,7 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip explosionTransient;
     [SerializeField] private AudioClip Engine;
+    [SerializeField] private ParticleSystem explodeSystem;
     [NonSerialized] public AudioSource engineSource;
 
     public LayerMask projectileLayer;
@@ -38,19 +40,20 @@ public class EnemyBehavior : MonoBehaviour
     private void Start()
     {
         Parent = transform.parent.GetComponent<EnemySpawnManager>();
+        Player = GameObject.Find("Ship");
         rb = GetComponent<Rigidbody2D>();
         engineSource = SoundFXManager.instance.PlaySoundFXClip(Engine, transform, transform, 0.6f, 1f, 0.1f, 1, true, 0.5f, 5);
 
         storedTransform = transform.position;
-        storedPlayerTransform = Parent.transform.position;
+        storedParentTransform = Parent.transform.position;
         storedParentRotation = Parent.transform.rotation;      
         startTime = Time.time;
 
-        center = (storedPlayerTransform + storedTransform) * 0.5f;
+        center = (storedParentTransform + storedTransform) * 0.5f;
         center += new Vector3(0, 1, 0);
 
         enemyCenter = storedTransform - center;
-        playerCenter = storedPlayerTransform - center;
+        parentCenter = storedParentTransform - center;
 
         Targeted = true;
     }
@@ -78,7 +81,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         float fracComplete = (Time.time - startTime) / journeyTime;
 
-        Vector3 slerp = Vector3.Slerp(enemyCenter, playerCenter, fracComplete);
+        Vector3 slerp = Vector3.Slerp(enemyCenter, parentCenter, fracComplete);
 
         Vector3 oldTransform = transform.position;
 
@@ -95,7 +98,7 @@ public class EnemyBehavior : MonoBehaviour
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, storedParentRotation, timeCount * lerpSpeed);
         timeCount = timeCount + Time.deltaTime;
-        if (Quaternion.Dot(transform.rotation, storedParentRotation) > 0.9999f)
+        if (Quaternion.Dot(transform.rotation, storedParentRotation) > 0.999f)
         {
             transform.rotation = storedParentRotation;
             finished = false;
@@ -123,9 +126,10 @@ public class EnemyBehavior : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (!isQuitting && isExploding)
+        if (!isQuitting && isExploding && Player != null)
         {
             SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.95f, 0.1f, UnityEngine.Random.Range(explosionPitchRange[0], explosionPitchRange[1]), false, 0.5f, 10);
+            Instantiate(explodeSystem, transform.position, Quaternion.identity);
         }
     }
 }

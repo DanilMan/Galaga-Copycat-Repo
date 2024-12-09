@@ -15,12 +15,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip pewTransient;
     [SerializeField] private AudioClip Engine;
+    [SerializeField] private ParticleSystem explodeSystem;
     private AudioSource engineSource;
 
     public LayerMask enemyLayer;
 
     public PlayerProjectileBehavior ProjectilePrefab;
     public Transform LaunchOffset;
+    public GameOverController gameOver;
 
     private bool isQuitting = false;
     private void Awake()
@@ -66,15 +68,6 @@ public class PlayerController : MonoBehaviour
             listener.AddComponent<AudioListener>();
             Destroy(gameObject);
         }
-        //if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "EnemyProjectile")
-        //{
-        //    AudioListener m_audioListener= GetComponent<AudioListener>();
-        //    GameObject listener = new GameObject("Listener");
-        //    listener.transform.position = transform.position;
-        //    Destroy(m_audioListener);
-        //    listener.AddComponent<AudioListener>();
-        //    Destroy(gameObject);
-        //}
     }
     void OnApplicationQuit()
     {
@@ -86,6 +79,8 @@ public class PlayerController : MonoBehaviour
         if (!isQuitting)
         {
             SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f));
+            Instantiate(explodeSystem, transform.position, Quaternion.identity);
+            gameOver.playerDied();
         }
     }
 }

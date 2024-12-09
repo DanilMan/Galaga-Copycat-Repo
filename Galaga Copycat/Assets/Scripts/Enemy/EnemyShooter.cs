@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.FilePathAttribute;
 
 public class EnemyShooter : MonoBehaviour
 {
@@ -20,8 +18,8 @@ public class EnemyShooter : MonoBehaviour
         float randomTime = UnityEngine.Random.Range(randStartTimeBegin, randStartTimeEnd);
         spriteRenderer = GetComponent<SpriteRenderer>();
         eb = GetComponent<EnemyBehavior>();
+        Player = eb.Player;
         eb.setExplosionPitchRange(0.8f, 1);
-        Player = GameObject.Find("Ship");
         Invoke("Shoot", randomTime);
     }
 

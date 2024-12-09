@@ -177,11 +177,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engineHum: {fileID: 8300000, guid: d1d2b92f100795d4a8b224ce387aca3f, type: 3}
   destroyDelay: 0.5
+  Player: {fileID: 0}
   journeyTime: 2
   lerpSpeed: 0.01
   explosion: {fileID: 8300000, guid: 5fc745ac169dbb445bad24e09005480f, type: 3}
   explosionTransient: {fileID: 8300000, guid: 0666854915b25ad45bccffc151ea63ae, type: 3}
   Engine: {fileID: 8300000, guid: e7a31082bf1c4d441bfd27d77630f2a1, type: 3}
+  explodeSystem: {fileID: 28373163555421357, guid: cb232c2a06d1d614cad6dfb1115906fe, type: 3}
   projectileLayer:
     serializedVersion: 2
     m_Bits: 1024

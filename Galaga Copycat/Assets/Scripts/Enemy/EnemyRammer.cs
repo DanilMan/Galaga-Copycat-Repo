@@ -25,7 +25,7 @@ public class EnemyRammer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         eb = GetComponent<EnemyBehavior>();
         eb.setExplosionPitchRange(0.5f, 0.7f);
-        Player = GameObject.Find("Ship");
+        Player = eb.Player;
         Invoke("Ram", randomTime);
     }
     private void Ram()
@@ -44,7 +44,7 @@ public class EnemyRammer : MonoBehaviour
         {
             transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
             timeCount = timeCount + Time.deltaTime;
-            if (Quaternion.Dot(transform.rotation, rotation) > 0.9999f)
+            if (Quaternion.Dot(transform.rotation, rotation) > 0.999f)
             {
                 transform.rotation = rotation;
                 Targeted = false;
