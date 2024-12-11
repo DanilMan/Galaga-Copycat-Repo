@@ -53,6 +53,7 @@
 -s="C:\Program Files\Unity\Hub\Editor\6000.0.29f1\Editor\Data\NetStandard\EditorExtensions"
 -s="C:\Program Files\Unity\Hub\Editor\6000.0.29f1\Editor\Data\NetStandard\Extensions\2.0.0"
 -s="C:\Program Files\Unity\Hub\Editor\6000.0.29f1\Editor\Data\NetStandard\ref\2.1.0"
+-s="C:\Program Files\Unity\Hub\Editor\6000.0.29f1\Editor\Data\PlaybackEngines\WebGLSupport\Managed"
 -s="C:\Users\darth\OneDrive\Documents\2D Platformer Unity\Galaga-Copycat-Repo\Galaga Copycat\Library\ScriptAssemblies"
 -s="C:\Users\darth\OneDrive\Documents\2D Platformer Unity\Galaga-Copycat-Repo\Galaga Copycat\Library\PackageCache\com.unity.burst"
 -s="C:\Users\darth\OneDrive\Documents\2D Platformer Unity\Galaga-Copycat-Repo\Galaga Copycat\Library\PackageCache\com.unity.burst\Unity.Burst.CodeGen"
