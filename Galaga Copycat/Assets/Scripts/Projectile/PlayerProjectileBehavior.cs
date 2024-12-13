@@ -7,6 +7,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 _direction;
     [SerializeField] private AudioClip pew;
+    [SerializeField] private ParticleSystem collisionEffect;
 
     void Awake()
     {
@@ -23,6 +24,8 @@ public class PlayerProjectileBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        ParticleSystem particleSystem = Instantiate(collisionEffect, transform.position, Quaternion.identity);
+        Destroy(particleSystem.gameObject, 1f);
         Destroy(gameObject);
     }
 

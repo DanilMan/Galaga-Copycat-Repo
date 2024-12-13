@@ -3155,12 +3155,13 @@ struct OptionDataList_t53255477D0A9C6980AB48693A520EFBC94DFFB96  : public Runtim
 struct EdgeComparer_t1C315465BD6F9E1B52EC5F34BDA035CB77CE957E  : public RuntimeObject
 {
 };
-struct U3CspawnInMotionU3Ed__26_t736AF5F3AE341E9CEB21ADF806FA72B44070D743  : public RuntimeObject
+struct U3CspawnInMotionU3Ed__25_t28CD6BB12BCF56B3821E5080847CCB17033C2805  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
 	EnemyBehavior_t130C51D1CEE69D4C199037B930759276F0FFD1BE* ___U3CU3E4__this;
 	float ___U3CfracCompleteU3E5__2;
+	float ___U3CtimeU3E5__3;
 };
 struct U3CRangeIteratorU3Ed__115_tDB1D987AE1C673965E7ABCDA1D189AD36358F14D  : public RuntimeObject
 {
@@ -18034,7 +18035,7 @@ struct CrossFadeType_t8984E3A334BAB6D4752DAB6AFC8D1154353198A8
 struct DropdownEvent_t8A008B010A742724CFC93576D6976E474BB13059  : public UnityEvent_1_t7CC0661D6B113117B4CC68761D93AC8DF5DBD66A
 {
 };
-struct U3CcorrectRotationU3Ed__27_t5414A22BA01908206A964DCDD5827C2CAECD7EDB  : public RuntimeObject
+struct U3CcorrectRotationU3Ed__26_t3C1420A9DED59A1B26BBCDCA842B5CD4AFD47BF4  : public RuntimeObject
 {
 	int32_t ___U3CU3E1__state;
 	RuntimeObject* ___U3CU3E2__current;
@@ -29295,7 +29296,6 @@ struct EnemyBehavior_t130C51D1CEE69D4C199037B930759276F0FFD1BE  : public MonoBeh
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___targetDirection;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___center;
 	float ___journeyTime;
-	float ___startTime;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___storedTransform;
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___storedParentTransform;
 	Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 ___storedParentRotation;
@@ -29506,6 +29506,7 @@ struct PlayerProjectileBehavior_t0F2DF93D2585A76BB89A8B72AA93ACED9F707176  : pub
 	Rigidbody2D_tBEBE9523CF4448544085AF46BF7E10AA499F320F* ___rb;
 	Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 ____direction;
 	AudioClip_t5D272C4EB4F2D3ED49F1C346DEA373CF6D585F20* ___pew;
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___collisionEffect;
 };
 struct PointSystem_t651E7CE6F5F1EAD04F09E2626F0F08116E1ED624  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -39679,9 +39680,9 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize8209 = { sizeof(PointUpdater
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize8210;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize8210 = { sizeof(EnemyArray_t822B39229FD56B59127590DBBC76BE33FE3AF3D8), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize8211;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize8211 = { sizeof(U3CcorrectRotationU3Ed__27_t5414A22BA01908206A964DCDD5827C2CAECD7EDB), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize8211 = { sizeof(U3CcorrectRotationU3Ed__26_t3C1420A9DED59A1B26BBCDCA842B5CD4AFD47BF4), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize8212;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize8212 = { sizeof(U3CspawnInMotionU3Ed__26_t736AF5F3AE341E9CEB21ADF806FA72B44070D743), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize8212 = { sizeof(U3CspawnInMotionU3Ed__25_t28CD6BB12BCF56B3821E5080847CCB17033C2805), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize8213;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize8213 = { sizeof(EnemyBehavior_t130C51D1CEE69D4C199037B930759276F0FFD1BE), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize8214;

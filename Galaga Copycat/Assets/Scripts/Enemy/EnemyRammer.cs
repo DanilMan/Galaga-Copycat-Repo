@@ -48,6 +48,7 @@ public class EnemyRammer : MonoBehaviour
             time += Time.deltaTime * lerpSpeed;
             yield return null;
         }
+        transform.rotation = rotation;
         rb.linearVelocity = targetDirection.normalized * speed;
         eb.engineSource.pitch = 2f;
         eb.addPointValue(ramPoints);

@@ -13,7 +13,6 @@ public class EnemyBehavior : MonoBehaviour
     Vector3 targetDirection;
     private Vector3 center;
     [SerializeField] private float journeyTime = 2.0f;
-    private float startTime;
     private Vector3 storedTransform;
     private Vector3 storedParentTransform;
     private Quaternion storedParentRotation;
@@ -46,7 +45,6 @@ public class EnemyBehavior : MonoBehaviour
         storedTransform = transform.position;
         storedParentTransform = Parent.transform.position;
         storedParentRotation = Parent.transform.rotation;      
-        startTime = Time.time;
 
         center = (storedParentTransform + storedTransform) * 0.5f;
         center += new Vector3(0, 1, 0);
@@ -66,9 +64,11 @@ public class EnemyBehavior : MonoBehaviour
     private IEnumerator spawnInMotion()
     {
         float fracComplete = 0f;
+        float time = 0f;
         while (fracComplete < 1f)
         {
-            fracComplete = (Time.time - startTime) / journeyTime;
+            time += Time.deltaTime;
+            fracComplete = time / journeyTime;
 
             Vector3 slerp = Vector3.Slerp(enemyCenter, parentCenter, fracComplete);
 
@@ -77,9 +77,12 @@ public class EnemyBehavior : MonoBehaviour
             transform.position = slerp;
             transform.position += center;
 
-            targetDirection = transform.position - oldTransform;
-            Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
-            transform.rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
+            if (transform.position != oldTransform)
+            {
+                targetDirection = transform.position - oldTransform;
+                Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
+                transform.rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
+            }
             yield return null;
         }
         StartCoroutine(correctRotation());
@@ -95,6 +98,7 @@ public class EnemyBehavior : MonoBehaviour
             time += Time.deltaTime * lerpSpeed;
             yield return null;
         }
+        transform.rotation = storedParentRotation;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
