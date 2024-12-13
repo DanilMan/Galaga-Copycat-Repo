@@ -169,6 +169,7 @@ UnityEngine.Application::get_streamingAssetsPath_Injected
 UnityEngine.Application::get_platform
 UnityEngine.AsyncOperation::InternalDestroy
 UnityEngine.AsyncOperation::InternalSetManagedObject
+UnityEngine.Audio.AudioMixer::GetFloat_Injected
 UnityEngine.Audio.AudioMixer::SetFloat_Injected
 UnityEngine.Audio.AudioPlayableOutput::InternalSetEvaluateOnSeek
 UnityEngine.AudioClip::get_ambisonic_Injected
@@ -940,8 +941,8 @@ UnityEngine.Quaternion::Internal_FromEulerRad_Injected
 UnityEngine.Quaternion::Internal_ToAxisAngleRad_Injected
 UnityEngine.Quaternion::Internal_ToEulerRad_Injected
 UnityEngine.Quaternion::Inverse_Injected
-UnityEngine.Quaternion::Lerp_Injected
 UnityEngine.Quaternion::LookRotation_Injected
+UnityEngine.Quaternion::Slerp_Injected
 UnityEngine.Random::RandomRangeInt
 UnityEngine.Random::Range
 UnityEngine.Random::get_value

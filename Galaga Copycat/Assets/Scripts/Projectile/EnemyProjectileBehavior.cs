@@ -6,10 +6,14 @@ public class EnemyProjectileBehavior : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 _direction;
     [SerializeField] private AudioClip pew;
+    private EnemyBehavior parent;
+    public LayerMask Layer;
+    [SerializeField] private uint points = 1;
 
-    public void Initialize(Vector3 direction)
+    public void Initialize(Vector3 direction, EnemyBehavior parent)
     {
         _direction = direction;
+        this.parent = parent;
     }
 
     void Awake()
@@ -25,6 +29,10 @@ public class EnemyProjectileBehavior : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (Layer == (Layer.value & (1 << collision.gameObject.layer)))
+        {
+            parent.addChildrenPoints(points);
+        }
         Destroy(gameObject);
     }
 }

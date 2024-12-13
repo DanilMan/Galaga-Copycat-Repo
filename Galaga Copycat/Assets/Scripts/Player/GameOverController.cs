@@ -1,10 +1,16 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour
 {
-    public float deadwait = 3f;
-    public void playerDied()
+    [SerializeField] private SoundMixerManager soundMixerManager;
+
+    public void lerpMuteMaster()
+    {
+        soundMixerManager.setGameEnd();
+    }
+    public void playerDied(float deadwait = 0)
     {
         Invoke("goToGameOver", deadwait);
     }

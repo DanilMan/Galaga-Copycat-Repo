@@ -168,3 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   pew: {fileID: 8300000, guid: 650225ee67902cc4098e92501f68b798, type: 3}
+  pointSystem: {fileID: 0}
+  Layer:
+    serializedVersion: 2
+    m_Bits: 192

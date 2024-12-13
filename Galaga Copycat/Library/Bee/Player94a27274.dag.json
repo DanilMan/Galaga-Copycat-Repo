@@ -636,19 +636,7 @@
         626,
         627,
         628,
-        629,
-        630,
-        631,
-        632,
-        633,
-        634,
-        635,
-        636,
-        637,
-        638,
-        639,
-        640,
-        641
+        629
       ],
       "DebugActionIndex": 0
     },
@@ -39149,7 +39137,7 @@
     {
       "Annotation": "PreprocessJS Library/Bee/artifacts/WebGLWebBuild.loader.js",
       "DisplayName": "Preprocessing JavaScript WebGLWebBuild.loader.js",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='C\\x3a/Users/darth/OneDrive/Documents/2D Platformer Unity/Galaga\\x2dCopycat\\x2dRepo/Galaga Copycat/Library/Bee/artifacts/WebGLWebBuild.loader.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Galaga Copycat'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1280\" \"HEIGHT=720\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebBuild.data.br'\" \"FRAMEWORK_FILENAME='WebBuild.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebBuild.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_WASM2023=false\" \"USE_THREADS=false\" \"USE_WEBGL_2_0=true\" \"USE_WEBGPU=false\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='6000.0.29f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"WASM_SIZE='46992092'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='UnityLoader/UnityLoader.js'\"  \"locals.outputPath='C\\x3a/Users/darth/OneDrive/Documents/2D Platformer Unity/Galaga\\x2dCopycat\\x2dRepo/Galaga Copycat/Library/Bee/artifacts/WebGLWebBuild.loader.js'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=true\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Galaga Copycat'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1280\" \"HEIGHT=720\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebBuild.data.br'\" \"FRAMEWORK_FILENAME='WebBuild.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebBuild.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_WASM2023=false\" \"USE_THREADS=false\" \"USE_WEBGL_2_0=true\" \"USE_WEBGPU=false\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='6000.0.29f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\" \"WASM_SIZE='46997703'\"",
       "Inputs": [
         "UnityLoader/UnityLoader.js"
       ],
@@ -39202,9 +39190,9 @@
     {
       "Annotation": "PreprocessJS WebBuild/index.html",
       "DisplayName": "Preprocessing JavaScript index.html",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/index.html'\"  \"locals.outputPath='C\\x3a/Users/darth/OneDrive/Documents/2D Platformer Unity/Galaga\\x2dCopycat\\x2dRepo/Galaga Copycat/WebBuild/index.html'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Galaga Copycat'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1280\" \"HEIGHT=720\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebBuild.data.br'\" \"FRAMEWORK_FILENAME='WebBuild.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebBuild.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_WASM2023=false\" \"USE_THREADS=false\" \"USE_WEBGL_2_0=true\" \"USE_WEBGPU=false\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='6000.0.29f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\"  \"LOADER_FILENAME='WebBuild.loader.js'\"",
+      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Minimal/index.html'\"  \"locals.outputPath='C\\x3a/Users/darth/OneDrive/Documents/2D Platformer Unity/Galaga\\x2dCopycat\\x2dRepo/Galaga Copycat/WebBuild/index.html'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Galaga Copycat'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1280\" \"HEIGHT=720\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebBuild.data.br'\" \"FRAMEWORK_FILENAME='WebBuild.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebBuild.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_WASM2023=false\" \"USE_THREADS=false\" \"USE_WEBGL_2_0=true\" \"USE_WEBGPU=false\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='6000.0.29f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\"  \"LOADER_FILENAME='WebBuild.loader.js'\"",
       "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/index.html"
+        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Minimal/index.html"
       ],
       "InputFlags": [
         0
@@ -39224,272 +39212,6 @@
       "DebugActionIndex": 628
     },
     {
-      "Annotation": "CopyFiles WebBuild/TemplateData/favicon.ico",
-      "DisplayName": "Copying favicon.ico",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/favicon.ico"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/favicon.ico"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 629
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/fullscreen-button.png",
-      "DisplayName": "Copying fullscreen-button.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/fullscreen-button.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/fullscreen-button.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 630
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/MemoryProfiler.png",
-      "DisplayName": "Copying MemoryProfiler.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/MemoryProfiler.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/MemoryProfiler.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 631
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/progress-bar-empty-dark.png",
-      "DisplayName": "Copying progress-bar-empty-dark.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/progress-bar-empty-dark.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/progress-bar-empty-dark.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 632
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/progress-bar-empty-light.png",
-      "DisplayName": "Copying progress-bar-empty-light.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/progress-bar-empty-light.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/progress-bar-empty-light.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 633
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/progress-bar-full-dark.png",
-      "DisplayName": "Copying progress-bar-full-dark.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/progress-bar-full-dark.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/progress-bar-full-dark.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 634
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/progress-bar-full-light.png",
-      "DisplayName": "Copying progress-bar-full-light.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/progress-bar-full-light.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/progress-bar-full-light.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 635
-    },
-    {
-      "Annotation": "PreprocessJS WebBuild/TemplateData/style.css",
-      "DisplayName": "Preprocessing JavaScript style.css",
-      "Action": "cd /d \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools\" && \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Emscripten/node/node.exe\" \"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/Preprocess.js\"  \"locals.cwd='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools'\"  \"locals.inputPath='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/style.css'\"  \"locals.outputPath='C\\x3a/Users/darth/OneDrive/Documents/2D Platformer Unity/Galaga\\x2dCopycat\\x2dRepo/Galaga Copycat/WebBuild/TemplateData/style.css'\"  \"locals.webglIncludes='C\\x3a/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/WebGLIncludes'\"  \"locals.minifyOutput=false\"  \"COMPANY_NAME='DefaultCompany'\" \"PRODUCT_NAME='Galaga Copycat'\" \"PRODUCT_VERSION='1.0'\" \"WIDTH=1280\" \"HEIGHT=720\" \"SPLASH_SCREEN_STYLE='Dark'\" \"BACKGROUND_COLOR='\\x23231F20'\" \"DATA_FILENAME='WebBuild.data.br'\" \"FRAMEWORK_FILENAME='WebBuild.framework.js.br'\" \"WORKER_FILENAME=''\" \"CODE_FILENAME='WebBuild.wasm.br'\" \"MEMORY_FILENAME=''\" \"SYMBOLS_FILENAME=''\" \"BACKGROUND_FILENAME=''\" \"USE_WASM=true\" \"USE_WASM2023=false\" \"USE_THREADS=false\" \"USE_WEBGL_2_0=true\" \"USE_WEBGPU=false\" \"WEBGL_POWER_PREFERENCE=2\" \"USE_DATA_CACHING=true\" \"DECOMPRESSION_FALLBACK=''\" \"DEVELOPMENT_PLAYER=false\" \"UNITY_VERSION='6000.0.29f1'\" \"SHOW_DIAGNOSTICS=false\" \"CLOSE_ON_QUIT=false\"  \"LOADER_FILENAME='WebBuild.loader.js'\"",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/style.css"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/style.css"
-      ],
-      "OutputFlags": [
-        8
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "AllowUnexpectedOutput": true,
-      "Env": [],
-      "DebugActionIndex": 636
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/unity-logo-dark.png",
-      "DisplayName": "Copying unity-logo-dark.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/unity-logo-dark.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/unity-logo-dark.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 637
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/unity-logo-light.png",
-      "DisplayName": "Copying unity-logo-light.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/unity-logo-light.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/unity-logo-light.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 638
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/unity-logo-title-footer.png",
-      "DisplayName": "Copying unity-logo-title-footer.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/unity-logo-title-footer.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/unity-logo-title-footer.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 639
-    },
-    {
-      "Annotation": "CopyFiles WebBuild/TemplateData/webmemd-icon.png",
-      "DisplayName": "Copying webmemd-icon.png",
-      "ActionType": "CopyFiles",
-      "Inputs": [
-        "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default/TemplateData/webmemd-icon.png"
-      ],
-      "InputFlags": [
-        0
-      ],
-      "Outputs": [
-        "WebBuild/TemplateData/webmemd-icon.png"
-      ],
-      "OutputFlags": [
-        10
-      ],
-      "ToBuildDependencies": [
-        619,
-        620
-      ],
-      "DebugActionIndex": 640
-    },
-    {
       "Annotation": "Player",
       "DisplayName": null,
       "Inputs": [],
@@ -39505,21 +39227,9 @@
         622,
         625,
         627,
-        628,
-        629,
-        630,
-        631,
-        632,
-        633,
-        634,
-        635,
-        636,
-        637,
-        638,
-        639,
-        640
+        628
       ],
-      "DebugActionIndex": 641
+      "DebugActionIndex": 629
     }
   ],
   "FileSignatures": [
@@ -39823,7 +39533,7 @@
       "Filter": "*.js"
     },
     {
-      "Path": "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Default",
+      "Path": "C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/PlaybackEngines/WebGLSupport/BuildTools/WebGLTemplates/Minimal",
       "Recurse": 1
     },
     {
@@ -39866,7 +39576,7 @@
   "EmitDataForBeeWhy": 0,
         "NamedNodes": {
           "all_tundra_nodes": 0,
-          "Player": 641
+          "Player": 629
         }
 ,  "DefaultNodes": [
     0

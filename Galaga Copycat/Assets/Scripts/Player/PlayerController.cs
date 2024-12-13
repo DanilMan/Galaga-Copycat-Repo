@@ -1,4 +1,4 @@
-using Unity.Properties;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
 
     public PlayerProjectileBehavior ProjectilePrefab;
     public Transform LaunchOffset;
+    [SerializeField] private SoundMixerManager SMM;
     public GameOverController gameOver;
+    [SerializeField] private float deadWait;
 
     private bool isQuitting = false;
     private void Awake()
@@ -32,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        engineSource = SoundFXManager.instance.PlaySoundFXClip(Engine, transform, transform, 0.65f, 0f, 0.1f, 1, true);
+        engineSource = SoundFXManager.instance.PlaySoundFXClip(Engine, transform, transform, 0.55f, 0f, 0.1f, 1, true);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -54,7 +56,7 @@ public class PlayerController : MonoBehaviour
         if (context.performed && !PauseMenu.GameIsPaused)
         {
             PlayerProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
-            SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 1f, 0f, 0.1f, Random.Range(0.8f,1f));
+            SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 0.85f, 0f, 0.1f, UnityEngine.Random.Range(0.8f,1f));
         }
     }
 
@@ -66,7 +68,11 @@ public class PlayerController : MonoBehaviour
             listener.transform.position = transform.position;
             Destroy(m_audioListener);
             listener.AddComponent<AudioListener>();
-            Destroy(gameObject);
+            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 0.85f, 0f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f));
+            Instantiate(explodeSystem, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+            gameOver.lerpMuteMaster();
+            Destroy(gameObject, deadWait);
         }
     }
     void OnApplicationQuit()
@@ -78,8 +84,6 @@ public class PlayerController : MonoBehaviour
     {
         if (!isQuitting)
         {
-            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f));
-            Instantiate(explodeSystem, transform.position, Quaternion.identity);
             gameOver.playerDied();
         }
     }

@@ -5,7 +5,6 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class EnemyArray : MonoBehaviour
 {
-    public GameObject[] Enemies;
     public EnemySpawnManager EnemySpawner;
     public int gridX = 15;
     public int gridY = 5;
@@ -16,13 +15,14 @@ public class EnemyArray : MonoBehaviour
     public float gridOriginQuadrantY = 4f;
     public float maxInterval = 2.5f;
     public float minInterval = 1f;
+    [SerializeField] private PointSystem pointSystem;
     private Vector2 gridOrigin;
     private EnemySpawnManager[,] ESMs;
     private List<int[]> Pos = new List<int[]>();
     private List<int[]> Pops = new List<int[]>();
     private float spawnInterval = 1f;
     private float lastKill;
-    System.Random rnd = new System.Random();
+    private System.Random rnd = new System.Random();
     
     //private long points = 0;
 
@@ -106,6 +106,12 @@ public class EnemyArray : MonoBehaviour
             Pos.Add(spawner);
             Pops.RemoveAt(0);
         }
+    }
 
+    public void countPoints(uint points)
+    {
+        int increase = 1 + (Pops.Count/(enemySpawnCount/8));
+        points *= ((uint)increase);
+        pointSystem.addPoints(points);
     }
 }

@@ -6,6 +6,7 @@ public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPaused = false;
     public GameObject PauseMenuUI;
+    [SerializeField] private GameObject player;
 
     public void Escape(InputAction.CallbackContext context)
     {
@@ -41,8 +42,11 @@ public class PauseMenu : MonoBehaviour
 
     public void LoadMenu()
     {
-        //TIme.timeScale = 1f;
-        //SceneManager.LoadScene("Menu")
+        Destroy(player.gameObject);
+        SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
+        AudioListener.pause = false;
+        GameIsPaused = false;
     }
 
     public void QuitGame()

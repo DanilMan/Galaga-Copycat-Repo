@@ -1,21 +1,20 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class EnemyRammer : MonoBehaviour
 {
     [SerializeField] private float randStartTimeBegin, randStartTimeEnd; // (3,9)
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 2.5f;
+    [SerializeField] private uint ramPoints;
     private Rigidbody2D rb;
     private EnemyBehavior eb;
-    private bool Targeted = false;
-    private bool Engage = false;
 
     Vector3 targetDirection;
     Quaternion rotation;
     private GameObject Player;
 
-    [SerializeField]private float lerpSpeed = 0.01f;
-    private float timeCount = 0.0f;
+    [SerializeField]private float lerpSpeed = 1f;
 
     [SerializeField] private AudioClip ramTransient;
 
@@ -34,27 +33,23 @@ public class EnemyRammer : MonoBehaviour
         targetDirection = Player.transform.position - transform.position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f);
         Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
         rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
-        SoundFXManager.instance.PlaySoundFXClip(ramTransient, transform, transform, 1f, 0.9f, 0.1f, Random.Range(.9f, 1.1f), false, 0.5f, 12);
-        Targeted = true;
+        SoundFXManager.instance.PlaySoundFXClip(ramTransient, transform, transform, 1f, 0.6f, 0.1f, Random.Range(.9f, 1.1f), false, 0.5f, 12);
+
+        StartCoroutine(rammingSpeed());
     }
 
-    private void Update()
+    private IEnumerator rammingSpeed()
     {
-        if (Targeted)
+        float time = 0f;
+        Quaternion startRotation = transform.rotation;
+        while (time < 1f)
         {
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotation, timeCount * lerpSpeed);
-            timeCount = timeCount + Time.deltaTime;
-            if (Quaternion.Dot(transform.rotation, rotation) > 0.999f)
-            {
-                transform.rotation = rotation;
-                Targeted = false;
-                Engage = true;
-            }
+            transform.rotation = Quaternion.Slerp(startRotation, rotation, time);
+            time += Time.deltaTime * lerpSpeed;
+            yield return null;
         }
-        if (Engage)
-        {
-            rb.linearVelocity = targetDirection * speed;
-            eb.engineSource.pitch = 2f;
-        }
+        rb.linearVelocity = targetDirection.normalized * speed;
+        eb.engineSource.pitch = 2f;
+        eb.addPointValue(ramPoints);
     }
 }

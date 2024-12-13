@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class EnemyBehavior : MonoBehaviour
@@ -7,11 +9,8 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] float destroyDelay;
     [NonSerialized] public GameObject Player;
     private EnemySpawnManager Parent;
-    private Rigidbody2D rb;
 
     Vector3 targetDirection;
-    private bool Targeted = false;
-    private bool finished = false;
     private Vector3 center;
     [SerializeField] private float journeyTime = 2.0f;
     private float startTime;
@@ -21,8 +20,7 @@ public class EnemyBehavior : MonoBehaviour
     private Vector3 enemyCenter;
     private Vector3 parentCenter;
 
-    [SerializeField] private float lerpSpeed = 0.01f;
-    private float timeCount = 0.0f;
+    [SerializeField] private float lerpSpeed = 2f;
 
     [SerializeField] private AudioClip explosion;
     [SerializeField] private AudioClip explosionTransient;
@@ -30,7 +28,9 @@ public class EnemyBehavior : MonoBehaviour
     [SerializeField] private ParticleSystem explodeSystem;
     [NonSerialized] public AudioSource engineSource;
 
-    public LayerMask projectileLayer;
+    [SerializeField] private uint pointValue;
+
+    public LayerMask Layer;
 
     private float[] explosionPitchRange = {0.9f, 1.1f};
 
@@ -41,7 +41,6 @@ public class EnemyBehavior : MonoBehaviour
     {
         Parent = transform.parent.GetComponent<EnemySpawnManager>();
         Player = GameObject.Find("Ship");
-        rb = GetComponent<Rigidbody2D>();
         engineSource = SoundFXManager.instance.PlaySoundFXClip(Engine, transform, transform, 0.6f, 1f, 0.1f, 1, true, 0.5f, 5);
 
         storedTransform = transform.position;
@@ -55,7 +54,7 @@ public class EnemyBehavior : MonoBehaviour
         enemyCenter = storedTransform - center;
         parentCenter = storedParentTransform - center;
 
-        Targeted = true;
+        StartCoroutine(spawnInMotion());
     }
 
     public void setExplosionPitchRange(float first, float second)
@@ -64,51 +63,44 @@ public class EnemyBehavior : MonoBehaviour
         this.explosionPitchRange[1] = second;
     }
 
-    private void Update()
+    private IEnumerator spawnInMotion()
     {
-        if (Targeted)
+        float fracComplete = 0f;
+        while (fracComplete < 1f)
         {
-            Targeted = spawnInMotion() <= 1f;
-            finished = !Targeted;
+            fracComplete = (Time.time - startTime) / journeyTime;
+
+            Vector3 slerp = Vector3.Slerp(enemyCenter, parentCenter, fracComplete);
+
+            Vector3 oldTransform = transform.position;
+
+            transform.position = slerp;
+            transform.position += center;
+
+            targetDirection = transform.position - oldTransform;
+            Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
+            transform.rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
+            yield return null;
         }
-        if (finished)
-        {
-            correctRotation();
-        }
+        StartCoroutine(correctRotation());
     }
 
-    private float spawnInMotion()
+    private IEnumerator correctRotation()
     {
-        float fracComplete = (Time.time - startTime) / journeyTime;
-
-        Vector3 slerp = Vector3.Slerp(enemyCenter, parentCenter, fracComplete);
-
-        Vector3 oldTransform = transform.position;
-
-        transform.position = slerp;
-        transform.position += center;
-
-        targetDirection = transform.position - oldTransform;
-        Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
-        transform.rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
-        return fracComplete;
-    }
-
-    private void correctRotation()
-    {
-        transform.rotation = Quaternion.Lerp(transform.rotation, storedParentRotation, timeCount * lerpSpeed);
-        timeCount = timeCount + Time.deltaTime;
-        if (Quaternion.Dot(transform.rotation, storedParentRotation) > 0.999f)
+        float time = 0f;
+        Quaternion startRotation = transform.rotation;
+        while (time < 1f)
         {
-            transform.rotation = storedParentRotation;
-            finished = false;
+            transform.rotation = Quaternion.Slerp(startRotation, storedParentRotation, time);
+            time += Time.deltaTime * lerpSpeed;
+            yield return null;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Parent.shipDestroyed();
-        if (projectileLayer != (projectileLayer.value & (1 << collision.gameObject.layer)))
+        if (Layer != (Layer.value & (1 << collision.gameObject.layer)))
         {
             SoundFXManager.instance.PlaySoundFXClip(explosionTransient, transform, transform, 1f, 1f, 0.1f, UnityEngine.Random.Range(2, 2.5f), false, 0.5f, 6);
         }
@@ -128,8 +120,19 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (!isQuitting && isExploding && Player != null)
         {
+            Parent.shipPoints(pointValue);
             SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.95f, 0.1f, UnityEngine.Random.Range(explosionPitchRange[0], explosionPitchRange[1]), false, 0.5f, 10);
             Instantiate(explodeSystem, transform.position, Quaternion.identity);
         }
+    }
+
+    public void addChildrenPoints(uint points)
+    {
+        Parent.shipPoints(points);
+    }
+
+    public void addPointValue(uint points)
+    {
+        pointValue += points;
     }
 }

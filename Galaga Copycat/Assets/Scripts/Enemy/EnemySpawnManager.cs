@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemySpawnManager : MonoBehaviour
 {
-    public GameObject[] Enemies;
-    [SerializeField] private EnemyArray enemyArray;
+    public GameObject [] Enemies;
     [SerializeField] private Vector3 spawnOffset;
     private GameObject Enemy;
     private GameObject clone;
@@ -30,6 +29,11 @@ public class EnemySpawnManager : MonoBehaviour
     public void shipDestroyed()
     {
         Parent.decantSpawner(x, y);
+    }
+
+    public void shipPoints(uint points)
+    {
+        Parent.countPoints(points);
     }
 
     public void Spawn()

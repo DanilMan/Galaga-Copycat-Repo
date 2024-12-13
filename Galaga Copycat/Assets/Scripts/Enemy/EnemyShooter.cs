@@ -32,7 +32,7 @@ public class EnemyShooter : MonoBehaviour
         Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;
         Quaternion rotation = Quaternion.LookRotation(forward: Vector3.forward, upwards: rotatedVectorToTarget);
         EnemyProjectileBehavior projectile = Instantiate(ProjectilePrefab, position, rotation);
-        projectile.Initialize(targetDirection);
+        projectile.Initialize(targetDirection, eb);
 
         float randomTime = UnityEngine.Random.Range(randShootTimeBegin, randShootTimeEnd);
         Invoke("Shoot", randomTime);

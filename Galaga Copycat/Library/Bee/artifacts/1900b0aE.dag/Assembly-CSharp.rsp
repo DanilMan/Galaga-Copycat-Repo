@@ -449,6 +449,8 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/6000.0.29f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll"
 "Assets/Scripts/Canvas/PauseMenu.cs"
+"Assets/Scripts/Canvas/PointSystem.cs"
+"Assets/Scripts/Canvas/PointUpdater.cs"
 "Assets/Scripts/Enemy/EnemyArray.cs"
 "Assets/Scripts/Enemy/EnemyBehavior.cs"
 "Assets/Scripts/Enemy/EnemyRammer.cs"
