@@ -177,8 +177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   pew: {fileID: 8300000, guid: 10fc47825e7f62841bba2bc5d9d972e7, type: 3}
-  pointSystem: {fileID: 7346901004592380258, guid: c47a02cb6434bc441b3fb85e82ad4fc6, type: 3}
   Layer:
     serializedVersion: 2
     m_Bits: 64
   points: 1
+  projectileCollision: {fileID: 8300000, guid: 2e0812ef94ecef04cbd170e316ba261e, type: 3}

@@ -106,10 +106,17 @@ extern void PlayerController_Start_m1D83076E8B136A71051F2F02545EE04947D3A8CF (vo
 extern void PlayerController_Move_m39E3B65E69FB3D3CF0567879543F6E9AC7129059 (void);
 extern void PlayerController_FixedUpdate_m6D906D8B13844542B81CC49BA19760F747CEC8C0 (void);
 extern void PlayerController_Shoot_m8942773A6C8F7F55756A914022A1598FA7E11D50 (void);
+extern void PlayerController_loopShoot_m0812FF7D1D6D9CB413360D89C9EFDC83D7ACFCCF (void);
 extern void PlayerController_OnCollisionEnter2D_m28C67E4361403BA9990C1E6D9526F78362591667 (void);
 extern void PlayerController_OnApplicationQuit_m9B3D5EA4AE4DED65E8A5B31CA26F02A16EC59C80 (void);
 extern void PlayerController_OnDestroy_mBACF79169C488FF036B4FFA236852D6605281EFF (void);
 extern void PlayerController__ctor_mDDAB7C7D82E1A5B3E6C197B1AB9D653DFE554F33 (void);
+extern void U3CloopShootU3Ed__27__ctor_m74CB55714C6DDCA3B085639A836F52D29601A457 (void);
+extern void U3CloopShootU3Ed__27_System_IDisposable_Dispose_m013030628D9419ACE884BCE2FEEFE7AEA4B0D1F5 (void);
+extern void U3CloopShootU3Ed__27_MoveNext_m10692A82E0E0168A25A988060C81458AACDDA76F (void);
+extern void U3CloopShootU3Ed__27_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m956B487B05153EDA990FAFF2D30BD5AF44A6C085 (void);
+extern void U3CloopShootU3Ed__27_System_Collections_IEnumerator_Reset_m5E9B483AE4825527A14367F929CABB446CC352BF (void);
+extern void U3CloopShootU3Ed__27_System_Collections_IEnumerator_get_Current_m7370793AC6D90645D4341082597F97C48C422B0A (void);
 extern void EnemyProjectileBehavior_Initialize_mFBD81CC9531BDBB9AB740D05613545C2288A65EE (void);
 extern void EnemyProjectileBehavior_Awake_mB2452F0A88D25854D14464449440B958DA1B0359 (void);
 extern void EnemyProjectileBehavior_Start_mAD4E0C70BA3D77BC3603BA6B2D66EAB04829D72F (void);
@@ -123,7 +130,7 @@ extern void AngleBetween__ctor_m5773F9465CB33C622A09137FBEB444BE64DAAE6E (void);
 extern void AngleBetween_getAngleBetween_m15537A28D4C3040311F4A95BBA8F56C89872A036 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033 (void);
 extern void UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1 (void);
-static Il2CppMethodPointer s_methodPointers[122] = 
+static Il2CppMethodPointer s_methodPointers[129] = 
 {
 	PauseMenu_Escape_mC105D7703B67C1B4A24E594C436758D136475B3B,
 	PauseMenu_Resume_mA45D6E4F27172EF775FC2D3F694BE90882DBE831,
@@ -224,10 +231,17 @@ static Il2CppMethodPointer s_methodPointers[122] =
 	PlayerController_Move_m39E3B65E69FB3D3CF0567879543F6E9AC7129059,
 	PlayerController_FixedUpdate_m6D906D8B13844542B81CC49BA19760F747CEC8C0,
 	PlayerController_Shoot_m8942773A6C8F7F55756A914022A1598FA7E11D50,
+	PlayerController_loopShoot_m0812FF7D1D6D9CB413360D89C9EFDC83D7ACFCCF,
 	PlayerController_OnCollisionEnter2D_m28C67E4361403BA9990C1E6D9526F78362591667,
 	PlayerController_OnApplicationQuit_m9B3D5EA4AE4DED65E8A5B31CA26F02A16EC59C80,
 	PlayerController_OnDestroy_mBACF79169C488FF036B4FFA236852D6605281EFF,
 	PlayerController__ctor_mDDAB7C7D82E1A5B3E6C197B1AB9D653DFE554F33,
+	U3CloopShootU3Ed__27__ctor_m74CB55714C6DDCA3B085639A836F52D29601A457,
+	U3CloopShootU3Ed__27_System_IDisposable_Dispose_m013030628D9419ACE884BCE2FEEFE7AEA4B0D1F5,
+	U3CloopShootU3Ed__27_MoveNext_m10692A82E0E0168A25A988060C81458AACDDA76F,
+	U3CloopShootU3Ed__27_System_Collections_Generic_IEnumeratorU3CSystem_ObjectU3E_get_Current_m956B487B05153EDA990FAFF2D30BD5AF44A6C085,
+	U3CloopShootU3Ed__27_System_Collections_IEnumerator_Reset_m5E9B483AE4825527A14367F929CABB446CC352BF,
+	U3CloopShootU3Ed__27_System_Collections_IEnumerator_get_Current_m7370793AC6D90645D4341082597F97C48C422B0A,
 	EnemyProjectileBehavior_Initialize_mFBD81CC9531BDBB9AB740D05613545C2288A65EE,
 	EnemyProjectileBehavior_Awake_mB2452F0A88D25854D14464449440B958DA1B0359,
 	EnemyProjectileBehavior_Start_mAD4E0C70BA3D77BC3603BA6B2D66EAB04829D72F,
@@ -248,7 +262,7 @@ static Il2CppMethodPointer s_methodPointers[122] =
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1_Get_mBEB95BEB954BB63E9710BBC7AD5E78C4CB0A0033,
 	UnitySourceGeneratedAssemblyMonoScriptTypes_v1__ctor_mE70FB23ACC1EA12ABC948AA22C2E78B2D0AA39B1,
 };
-static const int32_t s_InvokerIndices[122] = 
+static const int32_t s_InvokerIndices[129] = 
 {
 	10457,
 	13250,
@@ -349,10 +363,17 @@ static const int32_t s_InvokerIndices[122] =
 	10457,
 	13250,
 	10457,
+	13035,
 	10187,
 	13250,
 	13250,
 	13250,
+	10128,
+	13250,
+	12851,
+	13035,
+	13250,
+	13035,
 	5412,
 	13250,
 	13250,
@@ -375,7 +396,7 @@ static const int32_t s_InvokerIndices[122] =
 };
 static const Il2CppTokenRangePair s_rgctxIndices[1] = 
 {
-	{ 0x02000018, { 0, 5 } },
+	{ 0x02000019, { 0, 5 } },
 };
 extern const uint32_t g_rgctx_T_tF00365EA642CF5F4FF57D9640C6B41BA5A0ADFF3;
 extern const uint32_t g_rgctx_Pair_2_set_First_m33C68193D55B99B40F94F7DECF8C5E8E62915097;
@@ -394,7 +415,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	122,
+	129,
 	s_methodPointers,
 	0,
 	NULL,

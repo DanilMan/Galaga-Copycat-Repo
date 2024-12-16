@@ -9,6 +9,7 @@ public class EnemyProjectileBehavior : MonoBehaviour
     private EnemyBehavior parent;
     public LayerMask Layer;
     [SerializeField] private uint points = 1;
+    [SerializeField] private AudioClip projectileCollision;
 
     public void Initialize(Vector3 direction, EnemyBehavior parent)
     {
@@ -31,6 +32,7 @@ public class EnemyProjectileBehavior : MonoBehaviour
     {
         if (Layer == (Layer.value & (1 << collision.gameObject.layer)))
         {
+            SoundFXManager.instance.PlaySoundFXClip(projectileCollision, transform, null, 0.8f, 0.8f, 0.1f, UnityEngine.Random.Range(0.9f, 1.1f), false, 0.5f, 6);
             parent.addChildrenPoints(points);
         }
         Destroy(gameObject);

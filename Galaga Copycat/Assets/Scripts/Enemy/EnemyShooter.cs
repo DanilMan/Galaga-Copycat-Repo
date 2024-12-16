@@ -26,7 +26,7 @@ public class EnemyShooter : MonoBehaviour
     private void Shoot()
     {
         if (Player == null) return;
-        SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 1f, 0.8f, 0.1f, Random.Range(.9f, 1.1f), false, 0.5f, 9);
+        SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 0.8f, 0.8f, 0.1f, Random.Range(.9f, 1.1f), false, 0.5f, 9);
         Vector3 position = transform.position - new Vector3(0, spriteRenderer.bounds.size.y/2, 0);
         Vector3 targetDirection = Player.transform.position - position + new Vector3(Random.Range(-0.5f, 0.5f), Random.Range(-0.5f, 0.5f), 0f);
         Vector3 rotatedVectorToTarget = Quaternion.Euler(0, 0, 180) * targetDirection;

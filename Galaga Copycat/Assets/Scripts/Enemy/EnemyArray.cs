@@ -23,8 +23,6 @@ public class EnemyArray : MonoBehaviour
     private float spawnInterval = 1f;
     private float lastKill;
     private System.Random rnd = new System.Random();
-    
-    //private long points = 0;
 
     private void Start()
     {
@@ -110,7 +108,7 @@ public class EnemyArray : MonoBehaviour
 
     public void countPoints(uint points)
     {
-        int increase = 1 + (Pops.Count/(enemySpawnCount/8));
+        int increase = 1 + (Pops.Count/(enemySpawnCount/8)) * (1 + (int)Mathf.Round((Time.fixedTime / 60f)));
         points *= ((uint)increase);
         pointSystem.addPoints(points);
     }

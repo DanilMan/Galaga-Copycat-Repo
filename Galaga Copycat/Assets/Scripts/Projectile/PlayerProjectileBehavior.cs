@@ -18,7 +18,7 @@ public class PlayerProjectileBehavior : MonoBehaviour
     void Start()
     {
         rb.linearVelocity = _direction * speed;
-        SoundFXManager.instance.PlaySoundFXClip(pew, transform, transform, 1f, 1f, 0.1f, Random.Range(.8f, 1.2f), false, 0.5f, 6);
+        SoundFXManager.instance.PlaySoundFXClip(pew, transform, transform, 0.4f, 1f, 0.1f, Random.Range(.6f, 1.4f), false, 0.5f, 6);
         Destroy(gameObject, speed);
     }
 

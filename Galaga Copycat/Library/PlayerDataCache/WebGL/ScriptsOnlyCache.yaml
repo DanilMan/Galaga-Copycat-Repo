@@ -142,6 +142,8 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.Universal.WhiteBalance
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
+    Unity.ShaderGraph.Editor.dll:
+    - UnityEditor.ShaderGraph.ShaderGraphProjectSettings
     Unity.TextMeshPro:
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
@@ -424,33 +426,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 15234}
+      Script: {instanceID: 1818}
     - Class: 114
-      Script: {instanceID: 15374}
+      Script: {instanceID: 15236}
     - Class: 114
-      Script: {instanceID: 15878}
+      Script: {instanceID: 15376}
     - Class: 114
-      Script: {instanceID: 16310}
+      Script: {instanceID: 15880}
     - Class: 114
-      Script: {instanceID: 16530}
+      Script: {instanceID: 16312}
     - Class: 114
-      Script: {instanceID: 16732}
+      Script: {instanceID: 16532}
     - Class: 114
-      Script: {instanceID: 17226}
+      Script: {instanceID: 16734}
     - Class: 114
-      Script: {instanceID: 17662}
+      Script: {instanceID: 17228}
     - Class: 114
-      Script: {instanceID: 17800}
+      Script: {instanceID: 17664}
     - Class: 114
-      Script: {instanceID: 17836}
+      Script: {instanceID: 17802}
     - Class: 114
-      Script: {instanceID: 18852}
+      Script: {instanceID: 17838}
     - Class: 114
-      Script: {instanceID: 19348}
+      Script: {instanceID: 18854}
     - Class: 114
-      Script: {instanceID: 19600}
+      Script: {instanceID: 19350}
     - Class: 114
-      Script: {instanceID: 20006}
+      Script: {instanceID: 19602}
     - Class: 114
       Script: {instanceID: 20722}
     - Class: 114
@@ -531,19 +533,19 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 15374}
+      Script: {instanceID: 15376}
     - Class: 114
-      Script: {instanceID: 15878}
+      Script: {instanceID: 15880}
     - Class: 114
-      Script: {instanceID: 16732}
+      Script: {instanceID: 16734}
     - Class: 114
-      Script: {instanceID: 17226}
+      Script: {instanceID: 17228}
     - Class: 114
-      Script: {instanceID: 17662}
+      Script: {instanceID: 17664}
     - Class: 114
-      Script: {instanceID: 18956}
+      Script: {instanceID: 18958}
     - Class: 114
-      Script: {instanceID: 19600}
+      Script: {instanceID: 19602}
     - Class: 114
       Script: {instanceID: 20728}
     - Class: 114
@@ -592,59 +594,59 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 15374}
+      Script: {instanceID: 15376}
     - Class: 114
-      Script: {instanceID: 15548}
+      Script: {instanceID: 15550}
     - Class: 114
-      Script: {instanceID: 15830}
+      Script: {instanceID: 15832}
     - Class: 114
-      Script: {instanceID: 15878}
+      Script: {instanceID: 15880}
     - Class: 114
-      Script: {instanceID: 16088}
+      Script: {instanceID: 16090}
     - Class: 114
-      Script: {instanceID: 16250}
+      Script: {instanceID: 16252}
     - Class: 114
-      Script: {instanceID: 16372}
+      Script: {instanceID: 16374}
     - Class: 114
-      Script: {instanceID: 16588}
+      Script: {instanceID: 16590}
     - Class: 114
-      Script: {instanceID: 16732}
+      Script: {instanceID: 16734}
     - Class: 114
-      Script: {instanceID: 17002}
+      Script: {instanceID: 17004}
     - Class: 114
-      Script: {instanceID: 17226}
+      Script: {instanceID: 17228}
     - Class: 114
-      Script: {instanceID: 17252}
+      Script: {instanceID: 17254}
     - Class: 114
-      Script: {instanceID: 17600}
+      Script: {instanceID: 17602}
     - Class: 114
-      Script: {instanceID: 17662}
+      Script: {instanceID: 17664}
     - Class: 114
-      Script: {instanceID: 17694}
+      Script: {instanceID: 17696}
     - Class: 114
-      Script: {instanceID: 17702}
+      Script: {instanceID: 17704}
     - Class: 114
-      Script: {instanceID: 17834}
+      Script: {instanceID: 17836}
     - Class: 114
-      Script: {instanceID: 17962}
+      Script: {instanceID: 17964}
     - Class: 114
-      Script: {instanceID: 18082}
+      Script: {instanceID: 18084}
     - Class: 114
-      Script: {instanceID: 18180}
+      Script: {instanceID: 18182}
     - Class: 114
-      Script: {instanceID: 18222}
+      Script: {instanceID: 18224}
     - Class: 114
-      Script: {instanceID: 18278}
+      Script: {instanceID: 18280}
     - Class: 114
-      Script: {instanceID: 18310}
+      Script: {instanceID: 18312}
     - Class: 114
-      Script: {instanceID: 18346}
+      Script: {instanceID: 18348}
     - Class: 114
-      Script: {instanceID: 19272}
+      Script: {instanceID: 19274}
     - Class: 114
-      Script: {instanceID: 19600}
+      Script: {instanceID: 19602}
     - Class: 114
-      Script: {instanceID: 19610}
+      Script: {instanceID: 19612}
     - Class: 114
       Script: {instanceID: 20234}
     - Class: 114
@@ -758,6 +760,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime
     namespaceName: UnityEngine.Rendering.Universal
     className: UniversalRenderPipelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 5a8183ad4cada240e513c6f500b07c30
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: 95c8a8c68e664d4868755f06e7c55997
@@ -1264,7 +1272,7 @@ ScriptsOnlyBuild:
     className: DebugUIHandlerIntField
   - hash:
       serializedVersion: 2
-      Hash: 0db766d907956e298896574940b1a021
+      Hash: 4e98747b605b51d593ddce9161712d43
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: EnemyProjectileBehavior
@@ -1610,12 +1618,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem
     namespaceName: UnityEngine.InputSystem.Editor
     className: PlayerInputManagerEditor
-  - hash:
-      serializedVersion: 2
-      Hash: cba134cc6dd952de571a1a3fa326e847
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlayerController
   - hash:
       serializedVersion: 2
       Hash: 3074afe1b03a0fb081e176a4ef1b9d09

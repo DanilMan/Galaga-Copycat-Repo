@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -25,6 +26,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SoundMixerManager SMM;
     public GameOverController gameOver;
     [SerializeField] private float deadWait;
+    private int shootSwitch = 1;
+    [SerializeField] float shootTime;
+    private Coroutine shootCoroutine;
 
     private bool isQuitting = false;
     private void Awake()
@@ -53,11 +57,27 @@ public class PlayerController : MonoBehaviour
 
     public void Shoot(InputAction.CallbackContext context)
     {
-        if (context.performed && !PauseMenu.GameIsPaused)
+        if (!PauseMenu.GameIsPaused)
         {
-            PlayerProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffset.position, transform.rotation);
-            SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 0.85f, 0f, 0.1f, UnityEngine.Random.Range(0.8f,1f));
+            if (context.canceled)
+            {
+                StopCoroutine(shootCoroutine);
+            }
+            else if (context.started)
+            {
+                shootCoroutine = StartCoroutine(loopShoot());
+            }
         }
+    }
+
+    private IEnumerator loopShoot()
+    {
+        shootSwitch *= -1;
+        Vector3 LaunchOffsetSwitch = LaunchOffset.position + new Vector3(0.04f * shootSwitch, 0f, 0f);
+        PlayerProjectileBehavior projectile = Instantiate(ProjectilePrefab, LaunchOffsetSwitch, transform.rotation);
+        SoundFXManager.instance.PlaySoundFXClip(pewTransient, transform, transform, 0.5f, 0f, 0.1f, UnityEngine.Random.Range(0.8f, 1f));
+        yield return new WaitForSeconds(shootTime);
+        shootCoroutine = StartCoroutine(loopShoot());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

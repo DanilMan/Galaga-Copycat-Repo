@@ -2156,6 +2156,7 @@ MonoBehaviour:
   SMM: {fileID: 816541513}
   gameOver: {fileID: 1725919588}
   deadWait: 2.5
+  shootTime: 0.1
 --- !u!50 &651790008
 Rigidbody2D:
   serializedVersion: 5

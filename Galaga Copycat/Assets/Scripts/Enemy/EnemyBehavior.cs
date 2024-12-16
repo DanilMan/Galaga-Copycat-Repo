@@ -106,7 +106,7 @@ public class EnemyBehavior : MonoBehaviour
         Parent.shipDestroyed();
         if (Layer != (Layer.value & (1 << collision.gameObject.layer)))
         {
-            SoundFXManager.instance.PlaySoundFXClip(explosionTransient, transform, transform, 1f, 1f, 0.1f, UnityEngine.Random.Range(2, 2.5f), false, 0.5f, 6);
+            SoundFXManager.instance.PlaySoundFXClip(explosionTransient, transform, transform, 1f, 0.8f, 0.1f, UnityEngine.Random.Range(2, 2.5f), false, 0.5f, 6);
         }
         else
         {
@@ -125,7 +125,7 @@ public class EnemyBehavior : MonoBehaviour
         if (!isQuitting && isExploding && Player != null)
         {
             Parent.shipPoints(pointValue);
-            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.95f, 0.1f, UnityEngine.Random.Range(explosionPitchRange[0], explosionPitchRange[1]), false, 0.5f, 10);
+            SoundFXManager.instance.PlaySoundFXClip(explosion, transform, null, 1f, 0.8f, 0.1f, UnityEngine.Random.Range(explosionPitchRange[0], explosionPitchRange[1]), false, 0.5f, 12);
             Instantiate(explodeSystem, transform.position, Quaternion.identity);
         }
     }
